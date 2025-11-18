@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country & Capitals App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e8f0fe;
+            padding: 30px;
+        }
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            padding: 24px 32px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+        }
+        h1 {
+            color: #2148b8;
+            text-align: center;
+        }
+        label, select, .output {
+            display: block;
+            margin: 15px 0;
+            width: 100%;
+        }
+        select {
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .output {
+            font-weight: bold;
+            text-align: center;
+            color: #0d344e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Country & Capitals App</h1>
+        <label for="countrySelect">Select a country:</label>
+        <select id="countrySelect" onchange="showCapital()">
+            <option value="">-- Select --</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="France">France</option>
+            <option value="Japan">Japan</option>
+            <option value="Australia">Australia</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Germany">Germany</option>
+        </select>
+        <div class="output" id="output"></div>
+    </div>
+    <script>
+        const capitals = {
+            India: "New Delhi",
+            USA: "Washington, D.C.",
+            France: "Paris",
+            Japan: "Tokyo",
+            Australia: "Canberra",
+            Brazil: "Brasília",
+            Germany: "Berlin"
+        };
+
+        function showCapital() {
+            const select = document.getElementById("countrySelect");
+            const country = select.value;
+            const output = document.getElementById("output");
+            if (capitals[country]) {
+                output.textContent = "Capital: " + capitals[country];
+            } else {
+                output.textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>
